@@ -1,0 +1,40 @@
+$color_eee: #eee;
+$color_21: #212121;
+$light-color: #f7f4f4;
+$white: #fff;
+$primary-color: #0e6cff;
+$secondary-color: #ff8700;
+$font-stack: 'Comic sans MS', cursive, sans-serif;
+$full-percent: 100%;
+$half-percent: 50%;
+$d-flex: flex;
+$d-block: block;
+$d-none: none;
+$purple-like: #16162d;
+$neon: #03e9f4;
+
+@mixin textShadow() {text-shadow: #c5a05b 0 0 8px;}
+
+@mixin setMainTextColor() {
+  background: linear-gradient(to top, #ffe838, #fd57bf);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin flexcentercentercolumn() {
+  display: flex;
+  
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+}
+
+@function setColorDueToBackground($color){
+  @if(lightness($color) > 70) {
+    @return #212121;
+  } @else {
+    @return #eee;
+  }
+}
