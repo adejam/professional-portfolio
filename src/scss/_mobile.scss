@@ -26,4 +26,11 @@
       width: 48%;
     }
   }
+
+  .footer {
+    .footer-text {
+      justify-content: space-between;
+      flex-direction: row;
+    }
+  }
 }

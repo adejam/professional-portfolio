@@ -468,7 +468,12 @@
   }
 
   .footer-text {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 10px;
 
     @include textShadow();
   }
