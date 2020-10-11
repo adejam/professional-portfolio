@@ -81,7 +81,7 @@
 
     .first-bar {
       transform-origin: right;
-      // transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+
       @include rotateBarTransition();
 
       &.open {
@@ -92,7 +92,7 @@
     .last-bar {
       align-self: flex-end;
       transform-origin: left;
-      // transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+
       @include rotateBarTransition();
 
       &.open {
@@ -293,6 +293,110 @@
         transform: rotate(-45deg);
         width: 36px;
       }
+    }
+  }
+}
+
+.projectSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+
+  .card {
+    position: relative;
+    margin: 1%;
+    width: 98%;
+    height: 370px;
+    transition: 0.3s ease-out;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+
+    .card-header {
+      height: 10%;
+      position: relative;
+    }
+
+    .card-img-div {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: $full-percent;
+      height: 90%;
+
+      & img {
+        position: absolute;
+        height: $full-percent;
+        top: 0;
+        left: 0;
+        display: block;
+        transition: 0.5s;
+      }
+    }
+
+    .card-content {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: $full-percent;
+      color: #f5f5f5;
+      text-shadow: #c5a05b 0 0 8px;
+      padding: 12px;
+      background-color: rgba(20, 20, 20, 0.9);
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity 3s;
+
+      .card-text {
+        margin-top: 10px;
+        line-height: 1.3em;
+        text-align: center;
+      }
+
+      .tech-list {
+        margin-bottom: 4px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .tech-item {
+          cursor: pointer;
+          margin: 3px;
+          padding: 3px;
+          border-radius: 6px;
+          background: #fff;
+          color: #212121;
+        }
+      }
+
+      .links-list {
+        display: flex;
+        justify-content: space-between;
+
+        .links-item {
+          color: #9f9f9f;
+
+          .source-code-icon svg {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      box-shadow: 0 0 3em rgba(0, 0, 0, 0.4);
+    }
+
+    &:hover .card-img-div {
+      & img {
+        opacity: 0.8;
+      }
+    }
+
+    &:hover .card-content {
+      opacity: 1;
     }
   }
 }
