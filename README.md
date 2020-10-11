@@ -33,7 +33,7 @@ This project demonstrates a simple design for portfolio page which has the follo
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[adeleye-jamiu](https://adeleye-jamiu.netlify.app)
 
 ### Development (Running locally)
 
