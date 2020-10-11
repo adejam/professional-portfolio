@@ -1,13 +1,15 @@
 @import 'config';
 @import 'reset';
 @import 'utilities';
+
 .header {
   width: $full-percent;
   height: 100vh;
   background-color: $purple-like;
-  color: setColorDueToBackground($purple-like);
+  color: set-color-due-to-background($purple-like);
   display: $d-flex;
   align-items: center;
+
   .nav-bar {
     width: $full-percent;
     height: 100vh;
@@ -15,7 +17,7 @@
     top: -100vh;
     z-index: 50;
     background-color: lighten($purple-like, 6);
-    color: setColorDueToBackground(lighten($purple-like, 6));
+    color: set-color-due-to-background(lighten($purple-like, 6));
     border-bottom-left-radius: $full-percent;
     border-bottom-right-radius: $full-percent;
     transition: all 650ms cubic-bezier(1, 0, 0, 1);
@@ -23,11 +25,15 @@
     .nav-list {
       width: $full-percent;
       height: $full-percent;
+
       @include flexcentercentercolumn();
+
       li {
         .nav-link {
           font-size: 1.5em;
+
           @include textShadow();
+
           &:hover,
           &:focus {
             @include setMainTextColor();
@@ -35,6 +41,7 @@
         }
       }
     }
+
     &.open {
       top: 0;
       border-radius: initial;
@@ -71,17 +78,23 @@
     .last-bar {
       width: $half-percent;
     }
+
     .first-bar {
       transform-origin: right;
-      transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+      // transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+      @include rotateBarTransition();
+
       &.open {
         transform: rotate(-450deg) translateX(0.8rem);
       }
     }
+
     .last-bar {
       align-self: flex-end;
       transform-origin: left;
-      transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+      // transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+      @include rotateBarTransition();
+
       &.open {
         transform: rotate(-450deg) translateX(-0.8rem);
       }
@@ -100,6 +113,7 @@
     .my-img {
       display: none;
       flex: 1 1 40%;
+
       & img {
         border-radius: $half-percent;
       }
@@ -107,9 +121,12 @@
 
     .intro {
       flex: 1 1 60%;
+
       @include flexcentercentercolumn();
-      & h2 {
+
+      .intro-header {
         font-size: 3rem;
+
         @include setMainTextColor();
       }
     }
@@ -128,15 +145,18 @@
       overflow: hidden;
       cursor: pointer;
       -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+
       &:hover {
         background: $neon;
         color: #050801;
         box-shadow: 0 0 5px $neon, 0 0 25px $neon, 0 0 50px $neon, 0 0 200px $neon;
       }
+
       & span {
         position: absolute;
         display: block;
       }
+
       & span:nth-child(1) {
         top: 0;
         left: -100%;
@@ -145,15 +165,18 @@
         background: linear-gradient(90deg, transparent, $neon);
         animation: animate1 1s linear infinite;
       }
+
       @keyframes animate1 {
         0% {
           left: -100%;
         }
+
         50%,
         100% {
           left: $full-percent;
         }
       }
+
       & span:nth-child(2) {
         top: -100%;
         right: 0%;
@@ -163,15 +186,18 @@
         animation: animate2 1s linear infinite;
         animation-delay: 0.25s;
       }
+
       @keyframes animate2 {
         0% {
           top: -100%;
         }
+
         50%,
         100% {
           top: $full-percent;
         }
       }
+
       & span:nth-child(3) {
         bottom: 0;
         right: -100%;
@@ -181,15 +207,18 @@
         animation: animate3 1s linear infinite;
         animation-delay: 0.5s;
       }
+
       @keyframes animate3 {
         0% {
           right: -100%;
         }
+
         50%,
         100% {
           right: $full-percent;
         }
       }
+
       & span:nth-child(4) {
         bottom: -100%;
         left: 0;
@@ -199,10 +228,12 @@
         animation: animate4 1s linear infinite;
         animation-delay: 0.75s;
       }
+
       @keyframes animate4 {
         0% {
           bottom: -100%;
         }
+
         50%,
         100% {
           bottom: $full-percent;
@@ -216,6 +247,7 @@
   border-top: 1px solid rgba(0, 0, 0, 0.125);
   display: $d-flex;
   justify-content: center;
+
   a {
     transition: transform 2s ease, color 2s ease;
     display: inline-block;
@@ -224,8 +256,43 @@
     width: 40px;
     height: 40px;
     border-radius: 5px;
+
     &:hover {
       transform: translateY(-15px);
+    }
+  }
+}
+
+.my-skills {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+
+  .skill {
+    flex: 1 1 50%;
+    padding: 10px;
+
+    @include flexcentercentercolumn();
+
+    margin: 14px 0;
+
+    & h2 {
+      text-transform: capitalize;
+      margin: 0.5rem;
+    }
+
+    .icon-container {
+      width: 4rem;
+      height: 4rem;
+      border: 3px solid #ffc107;
+      transform: rotate(45deg);
+
+      @extend %flexcentercenter;
+
+      & i {
+        transform: rotate(-45deg);
+        width: 36px;
+      }
     }
   }
 }

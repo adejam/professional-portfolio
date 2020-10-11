@@ -3,15 +3,23 @@
     .nav-bar {
       .nav-list {
         flex-direction: row;
+
         li {
           margin: 0 1rem;
         }
       }
     }
+
     .introduction {
       .my-img {
         display: block;
       }
+    }
+  }
+
+  .my-skills {
+    .skill {
+      flex: 1 1 15%;
     }
   }
 }

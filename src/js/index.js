@@ -1,15 +1,26 @@
 const toggler = document.querySelector('.toggler');
-const links = document.querySelectorAll('.nav-link');
-const openNav = () => {
+const navList = document.querySelector('.nav-list');
+const toggleClass = element => {
+  if (element.classList.contains('open')) {
+    element.classList.remove('open');
+  } else {
+    element.classList.add('open');
+  }
+};
+
+const toggleNav = () => {
   const navBar = document.querySelector('.nav-bar');
   const firstBar = document.querySelector('.first-bar');
   const lastBar = document.querySelector('.last-bar');
-  toggler.classList.toggle('open');
-  navBar.classList.toggle('open');
-  firstBar.classList.toggle('open');
-  lastBar.classList.toggle('open');
+  toggleClass(toggler);
+  toggleClass(navBar);
+  toggleClass(firstBar);
+  toggleClass(lastBar);
 };
-toggler.addEventListener('click', openNav);
-links.forEach(link => {
-  link.addEventListener('click', openNav);
-});
+const checkLinkClass = e => {
+  if (e.target.classList.contains('nav-link')) {
+    toggleNav();
+  }
+};
+toggler.addEventListener('click', toggleNav);
+navList.addEventListener('click', checkLinkClass);

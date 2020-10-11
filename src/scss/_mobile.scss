@@ -1,7 +1,23 @@
 @media (min-width: 576px) {
-    .intro {
+  .intro {
+    & h2 {
+      font-size: 4rem;
+    }
+  }
+
+  .my-skills {
+    .skill {
+      flex: 1 1 20%;
+      padding: 15px;
+
       & h2 {
-        font-size: 4rem;
+        margin: 0.8rem;
+      }
+
+      .icon-container {
+        width: 5rem;
+        height: 5rem;
       }
     }
+  }
 }
