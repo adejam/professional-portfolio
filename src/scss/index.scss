@@ -1,217 +1,235 @@
-@import "config";
-@import "reset";
-@import "utilities";
+@import 'config';
+@import 'reset';
+@import 'utilities';
 .header {
+  width: $full-percent;
+  height: 100vh;
+  background-color: $purple-like;
+  color: setColorDueToBackground($purple-like);
+  display: $d-flex;
+  align-items: center;
+  .nav-bar {
     width: $full-percent;
     height: 100vh;
-    background-color: $purple-like;
-    color: setColorDueToBackground($purple-like);
-    display: $d-flex;
-    align-items: center;
-    .nav-bar {
+    position: fixed;
+    top: -100vh;
+    z-index: 50;
+    background-color: lighten($purple-like, 6);
+    color: setColorDueToBackground(lighten($purple-like, 6));
+    border-bottom-left-radius: $full-percent;
+    border-bottom-right-radius: $full-percent;
+    transition: all 650ms cubic-bezier(1, 0, 0, 1);
+
+    .nav-list {
       width: $full-percent;
-      height: 100vh;
-      position: fixed;
-      top: -100vh;
-      z-index: 50;
-      background-color: lighten($purple-like, 6);
-      color: setColorDueToBackground(lighten($purple-like, 6));
-      border-bottom-left-radius: $full-percent;
-      border-bottom-right-radius: $full-percent;
-      transition: all 650ms cubic-bezier(1, 0, 0, 1);
-  
-      .nav-list {
-        width: $full-percent;
-        height: $full-percent;
-        @include flexcentercentercolumn();
-        li {
-          .nav-link {
-            font-size: 1.5em;
-            @include textShadow();
-            &:hover,
-            &:focus {
-             @include setMainTextColor();
-            }
+      height: $full-percent;
+      @include flexcentercentercolumn();
+      li {
+        .nav-link {
+          font-size: 1.5em;
+          @include textShadow();
+          &:hover,
+          &:focus {
+            @include setMainTextColor();
           }
         }
       }
+    }
+    &.open {
+      top: 0;
+      border-radius: initial;
+    }
+  }
+
+  .toggler {
+    position: absolute;
+    top: 32px;
+    right: 2rem;
+    width: 2.5rem;
+    height: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1500;
+    transition: transform 650ms ease-out;
+
+    &.open {
+      transform: rotate(-45deg);
+    }
+
+    .first-bar,
+    .mid-bar,
+    .last-bar {
+      background: linear-gradient(to right, #ffe838, #fd57bf);
+      width: $full-percent;
+      height: 4px;
+      border-radius: 0.8rem;
+    }
+
+    .first-bar,
+    .last-bar {
+      width: $half-percent;
+    }
+    .first-bar {
+      transform-origin: right;
+      transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
       &.open {
-        top: 0;
-        border-radius: initial;
+        transform: rotate(-450deg) translateX(0.8rem);
       }
     }
-  
-    .toggler {
-      position: absolute;
-      top: 32px;
-      right: 2rem;
-      width: 2.5rem;
-      height: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .last-bar {
+      align-self: flex-end;
+      transform-origin: left;
+      transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+      &.open {
+        transform: rotate(-450deg) translateX(-0.8rem);
+      }
+    }
+  }
+
+  .introduction {
+    padding: 0 10px;
+    display: flex;
+    margin: 0 auto;
+    width: $full-percent;
+    max-width: 900px;
+    text-align: center;
+    z-index: 1;
+
+    .my-img {
+      display: none;
+      flex: 1 1 40%;
+      & img {
+        border-radius: $half-percent;
+      }
+    }
+
+    .intro {
+      flex: 1 1 60%;
+      @include flexcentercentercolumn();
+      & h2 {
+        font-size: 3rem;
+        @include setMainTextColor();
+      }
+    }
+
+    .resume-button {
+      padding: 25px 30px;
+      margin: 40px 0;
+      color: $neon;
+      font-size: 24px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: 0.5s;
+      letter-spacing: 4px;
+      background: none;
+      position: relative;
+      overflow: hidden;
       cursor: pointer;
-      z-index: 1500;
-      transition: transform 650ms ease-out;
-  
-      &.open {
-        transform: rotate(-45deg);
+      -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+      &:hover {
+        background: $neon;
+        color: #050801;
+        box-shadow: 0 0 5px $neon, 0 0 25px $neon, 0 0 50px $neon, 0 0 200px $neon;
       }
-  
-      .first-bar,
-      .mid-bar,
-      .last-bar {
-        background: linear-gradient(to right, #ffe838, #fd57bf);
+      & span {
+        position: absolute;
+        display: block;
+      }
+      & span:nth-child(1) {
+        top: 0;
+        left: -100%;
         width: $full-percent;
-        height: 4px;
-        border-radius: 0.8rem;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, $neon);
+        animation: animate1 1s linear infinite;
       }
-  
-      .first-bar,
-      .last-bar {
-        width: $half-percent;
-      }
-      .first-bar {
-        transform-origin: right;
-        transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
-        &.open {
-          transform: rotate(-450deg) translateX(0.8rem);
-        }
-      }
-      .last-bar {
-        align-self: flex-end;
-        transform-origin: left;
-        transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
-        &.open {
-          transform: rotate(-450deg) translateX(-0.8rem);
-        }
-      }
-    }
-  
-    .introduction {
-      padding: 0 10px;
-      display: flex;
-      margin: 0 auto;
-      width: $full-percent;
-      max-width: 900px;
-      text-align: center;
-      z-index: 1;
-  
-      .my-img {
-        display: none;
-        flex: 1 1 40%;
-        & img {
-          border-radius: $half-percent
-        }
-      }
-  
-      .intro {
-        flex: 1 1 60%;
-       @include flexcentercentercolumn();
-        & h2 {
-          font-size: 3rem;
-         @include setMainTextColor();
-        }
-      }
-  
-      .resume-button {
-        padding: 25px 30px;
-        margin: 40px 0;
-        color: $neon;
-        font-size: 24px;
-        text-decoration: none;
-        text-transform: uppercase;
-        transition: 0.5s;
-        letter-spacing: 4px;
-        background: none;
-        position: relative;
-        overflow: hidden;
-        cursor: pointer;
-        -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
-        &:hover {
-          background: $neon;
-          color: #050801;
-          box-shadow: 0 0 5px $neon, 0 0 25px $neon, 0 0 50px $neon,
-            0 0 200px $neon;
-        }
-        & span {
-          position: absolute;
-          display: block;
-        }
-        & span:nth-child(1) {
-          top: 0;
+      @keyframes animate1 {
+        0% {
           left: -100%;
-          width: $full-percent;
-          height: 2px;
-          background: linear-gradient(90deg, transparent, $neon);
-          animation: animate1 1s linear infinite;
         }
-        @keyframes animate1 {
-          0% {
-            left: -100%;
-          }
-          50%,
-          100% {
-            left: $full-percent;
-          }
+        50%,
+        100% {
+          left: $full-percent;
         }
-        & span:nth-child(2) {
+      }
+      & span:nth-child(2) {
+        top: -100%;
+        right: 0%;
+        width: 2px;
+        height: $full-percent;
+        background: linear-gradient(180deg, transparent, $neon);
+        animation: animate2 1s linear infinite;
+        animation-delay: 0.25s;
+      }
+      @keyframes animate2 {
+        0% {
           top: -100%;
-          right: 0%;
-          width: 2px;
-          height: $full-percent;
-          background: linear-gradient(180deg, transparent, $neon);
-          animation: animate2 1s linear infinite;
-          animation-delay: 0.25s;
         }
-        @keyframes animate2 {
-          0% {
-            top: -100%;
-          }
-          50%,
-          100% {
-            top: $full-percent;
-          }
+        50%,
+        100% {
+          top: $full-percent;
         }
-        & span:nth-child(3) {
-          bottom: 0;
+      }
+      & span:nth-child(3) {
+        bottom: 0;
+        right: -100%;
+        height: 2px;
+        width: $full-percent;
+        background: linear-gradient(270deg, transparent, $neon);
+        animation: animate3 1s linear infinite;
+        animation-delay: 0.5s;
+      }
+      @keyframes animate3 {
+        0% {
           right: -100%;
-          height: 2px;
-          width: $full-percent;
-          background: linear-gradient(270deg, transparent, $neon);
-          animation: animate3 1s linear infinite;
-          animation-delay: 0.5s;
         }
-        @keyframes animate3 {
-          0% {
-            right: -100%;
-          }
-          50%,
-          100% {
-            right: $full-percent;
-          }
+        50%,
+        100% {
+          right: $full-percent;
         }
-        & span:nth-child(4) {
+      }
+      & span:nth-child(4) {
+        bottom: -100%;
+        left: 0;
+        width: 2px;
+        height: $full-percent;
+        background: linear-gradient(360deg, transparent, $neon);
+        animation: animate4 1s linear infinite;
+        animation-delay: 0.75s;
+      }
+      @keyframes animate4 {
+        0% {
           bottom: -100%;
-          left: 0;
-          width: 2px;
-          height: $full-percent;
-          background: linear-gradient(360deg, transparent, $neon);
-          animation: animate4 1s linear infinite;
-          animation-delay: 0.75s;
         }
-        @keyframes animate4 {
-          0% {
-            bottom: -100%;
-          }
-          50%,
-          100% {
-            bottom: $full-percent;
-          }
+        50%,
+        100% {
+          bottom: $full-percent;
         }
       }
     }
   }
-@import "mobile";
-@import "tablet";
-@import "desktop";
+}
+
+.socialIcons {
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  display: $d-flex;
+  justify-content: center;
+  a {
+    transition: transform 2s ease, color 2s ease;
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 2.5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    &:hover {
+      transform: translateY(-15px);
+    }
+  }
+}
+
+@import 'mobile';
+@import 'tablet';
+@import 'desktop';
