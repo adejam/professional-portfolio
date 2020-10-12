@@ -4,7 +4,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const PreloadWebpackPlugin = require('preload-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -46,10 +48,15 @@ module.exports = {
     new MiniCssExtractPlugin({ filename: '[name].css' }),
     new FixStyleOnlyEntriesPlugin(),
     new OptimizeCSSAssetsPlugin({}),
+    new WorkboxPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
+    }),
     new HtmlWebPackPlugin({
       template: './src/views/index.html',
       filename: './index.html',
     }),
+    new PreloadWebpackPlugin(),
     new CleanWebpackPlugin({
       // Simulate the removal of files
       dry: true,
