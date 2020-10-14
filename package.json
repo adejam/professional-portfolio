@@ -2,7 +2,7 @@
   "name": "adeleye-jamiu",
   "version": "0.1.0",
   "description": "Adeleye Personal Portfolio Page",
-  "author": "Bola Ahmed Buari",
+  "author": "Adeleye Oluwaloseyi Jamiu",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/adejam/professional-portfolio/issues"
@@ -27,7 +27,7 @@
     "node-sass": "^4.14.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "path": "^0.12.7",
-    "preload-webpack-plugin": "^2.3.0",
+    "preload-webpack-plugin": "^3.0.0-beta.3",
     "prettier": "1.18.2",
     "sass": "^1.27.0",
     "sass-loader": "^10.0.3",

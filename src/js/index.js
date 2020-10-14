@@ -1,3 +1,11 @@
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/service-worker.js')
+      .then(r => r)
+      .catch(e => e);
+  });
+}
 const toggler = document.querySelector('.toggler');
 const navList = document.querySelector('.nav-list');
 const toggleClass = element => {
