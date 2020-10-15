@@ -113,8 +113,18 @@
     .my-img {
       display: none;
       flex: 1 1 40%;
+      position: relative;
+
+      &::after {
+        content: '';
+        display: block;
+        padding-top: calc(100% / (519 / 658));
+      }
 
       & img {
+        position: absolute;
+        top: 0;
+        left: 0;
         border-radius: $half-percent;
       }
     }
@@ -128,6 +138,10 @@
         font-size: 3rem;
 
         @include setMainTextColor();
+      }
+
+      .intro-subheader {
+        font-size: 1.1rem;
       }
     }
 
@@ -322,7 +336,14 @@
       top: 0;
       left: 0;
       width: $full-percent;
+      max-width: 540px;
       height: 90%;
+
+      &::after {
+        content: '';
+        display: block;
+        background-color: red;
+      }
 
       & img {
         position: absolute;
@@ -410,12 +431,12 @@
     padding: 1rem;
     margin-bottom: 5px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-    outline-color: #fd57bf;
+    outline-color: #28a745;
   }
 
-  input[type="submit"] {
-    color: #eee;
-    background-color: #fd57bf;
+  input[type='submit'] {
+    background-color: #28a745;
+    color: #000;
     cursor: pointer;
     transition: background-color 650ms;
     font-size: 1.5rem;
@@ -423,8 +444,7 @@
     padding: 0.5rem;
 
     &:hover {
-      color: #221e3f;
-      background-color: #ffe838;
+      opacity: 0.8;
     }
   }
 }
