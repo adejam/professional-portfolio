@@ -1,0 +1,51 @@
+$color_eee: #eee;
+$color_21: #212121;
+$light-color: #f7f4f4;
+$white: #fff;
+$primary-color: #0e6cff;
+$secondary-color: #ff8700;
+$font-stack: 'Comic sans MS', cursive, sans-serif;
+$full-percent: 100%;
+$half-percent: 50%;
+$d-flex: flex;
+$d-block: block;
+$d-none: none;
+$purple-like: #16162d;
+$neon: #03e9f4;
+
+@mixin textShadow() {
+  text-shadow: #c5a05b 0 0 8px;
+}
+
+@mixin rotateBarTransition {
+  transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+}
+
+@mixin setMainTextColor() {
+  background: linear-gradient(to top, #ffe838, #fd57bf);
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+%flexcentercenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexcentercentercolumn() {
+  @extend %flexcentercenter;
+
+  flex-direction: column;
+}
+
+@function set-color-due-to-background($color) {
+  @if (lightness($color) > 70) {
+    @return #212121;
+  }
+
+  @else {
+    @return #eee;
+  }
+}

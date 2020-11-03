@@ -1,0 +1,149 @@
+$values: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+@each $value in $values {
+  .m-#{$value} {
+    margin: #{$value}rem;
+  }
+
+  .mt-#{$value} {
+    margin-top: #{$value}rem;
+  }
+
+  .mb-#{$value} {
+    margin-bottom: #{$value}rem;
+  }
+
+  .ml-#{$value} {
+    margin-left: #{$value}rem;
+  }
+
+  .mr-#{$value} {
+    margin-right: #{$value}rem;
+  }
+
+  .mtb-#{$value} {
+    margin: #{$value}rem 0;
+  }
+
+  .mlr-#{$value} {
+    margin: 0 #{$value}rem;
+  }
+
+  .p-#{$value} {
+    padding: #{$value}rem;
+  }
+
+  .pt-#{$value} {
+    padding-top: #{$value}rem;
+  }
+
+  .pb-#{$value} {
+    padding-bottom: #{$value}rem;
+  }
+
+  .pl-#{$value} {
+    padding-left: #{$value}rem;
+  }
+
+  .pr-#{$value} {
+    padding-right: #{$value}rem;
+  }
+
+  .ptb-#{$value} {
+    padding: #{$value}rem 0;
+  }
+
+  .plr-#{$value} {
+    padding: 0 #{$value}rem;
+  }
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  position: relative;
+  margin: 1rem auto;
+  height: 100%;
+
+  .section-header {
+    text-align: center;
+    margin-top: 3rem;
+
+    & h2 {
+      font-size: 1.8rem;
+      text-transform: capitalize;
+      font-weight: 300;
+      position: relative;
+      margin-bottom: 1rem;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -0.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgb(92, 89, 89);
+      }
+
+      &::before {
+        width: 7rem;
+        height: 3px;
+        border-radius: 0.8rem;
+      }
+
+      &::after {
+        width: 1rem;
+        height: 1rem;
+        border-radius: 100%;
+        bottom: -0.9rem;
+      }
+    }
+
+    & h3 {
+      font-size: 1rem;
+      font-weight: 300;
+    }
+  }
+}
+
+.project-container {
+  max-width: $full-percent;
+  width: 98%;
+}
+
+.label {
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 0;
+}
+
+.bas::after {
+  padding-top: calc(100% / 2.05);
+}
+
+.ttt::after {
+  padding-top: calc(100% / 1.43);
+}
+
+.res::after {
+  padding-top: calc(100% / 2.07);
+}
+
+.weather::after {
+  padding-top: calc(100% / 2.08);
+}
+
+.todo::after {
+  padding-top: calc(100% / 1.38);
+}
+
+.calc::after {
+  padding-top: calc(100% / 2.05);
+}
+
+.book::after {
+  padding-top: calc(100% / 2.05);
+}

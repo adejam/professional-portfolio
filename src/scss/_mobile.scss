@@ -1,0 +1,36 @@
+@media (min-width: 576px) {
+  .intro {
+    & h2 {
+      font-size: 4rem;
+    }
+  }
+
+  .my-skills {
+    .skill {
+      flex: 1 1 20%;
+      padding: 15px;
+
+      & h2 {
+        margin: 0.8rem;
+      }
+
+      .icon-container {
+        width: 5rem;
+        height: 5rem;
+      }
+    }
+  }
+
+  .projectSection {
+    .card {
+      width: 48%;
+    }
+  }
+
+  .footer {
+    .footer-text {
+      justify-content: space-between;
+      flex-direction: row;
+    }
+  }
+}
